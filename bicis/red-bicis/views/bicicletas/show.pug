@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+
+    .container
+        nav(style="--bs-breadcrumb-divider: '>';" aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item
+                a(href='/bicicletas') Bicicletas/
+                li.breadcrumb-item.active(aria-current='page') Mostrando bicicleta
+
+        table.table(class='table table-dark table-hover')
+            thead
+                tr(class='table-dark')
+                    th(scope='col') #
+                    th(scope='col') Color
+                    th(scope='col') Modelo
+                    th(scope='col') Ubicación
+                    th(scope='col') Acciones
+            tbody
+
+                tr
+                    td(scope='row')= bici.id
+                    td= bici.color
+                    td= bici.modelo
+                    td= bici.ubicacion
+                    td
+
+                        button.link-button(type="submit" name='submit_param' value='submit_value' class='btn-sm btn-warning')
+                            a(href= "/bicicletas/" + bici.id + '/update')
+                                i.fas.fa-edit
+                        //- button.link-button(type="submit" name='submit_param' value='submit_value' class='btn-sm btn-info')
+                        //-     a(href= "/bicicletas/" + bici.id + '/show')
+                        //-         i.far.fa-eye
+                        //- form.inline(action="/bicicletas/" + bici.id + '/delete' method='post' class='d-inline')
+                        //-     input(type="hidden" name='id' value= bici.id)
+                        //-     button.link-button(type="submit" name='submit_param' value='submit_value' class='btn-sm btn-danger')
+                        //-         i.fas.fa-trash-alt
